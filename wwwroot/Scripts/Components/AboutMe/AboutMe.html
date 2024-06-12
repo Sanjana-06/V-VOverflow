@@ -1,0 +1,46 @@
+﻿<div id="AboutMe" class="bg-black"  data-aos="flip-left" >
+    <div class="container" style="background-image: url(/TheCCN/wwwroot/img/party.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+        <div class="row" >
+            <div class="col" style="opacity: .9;  ">
+                <div class="h-100 d-flex flex-column justify-content-center p-5" >
+                    <p class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">We &nbsp;<i class="bi bi-lock"></i>&nbsp; to hear about you. Tell us about yourself </p>
+                    <h1 class="text-uppercase mb-4 text-warning">About me</h1>
+                    <div>
+                        <!-- ======= Book A Table Section ======= -->
+                        <section id="book-a-table" class="book-a-table">
+                            <div class="container" data-aos="fade-up">
+                                <form action="home/AddUserInfo" method="post" role="form" class="php-email-form">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 form-group">
+                                            <input type="text" name="name" class="form-control bg-black tex
+                                            <a href="AboutMe.html">AboutMe.html</a>t-warning" id="name" placeholder="My Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">*
+                                            <div class="validate"></div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                                            <input type="email" class="form-control bg-black text-warning" name="email" id="email" placeholder="My Email . . . @alstomgroup.com" data-rule="email" data-msg="Please enter a valid email">
+                                            <div class="validate"></div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                                            <input type="text" class="form-control bg-black text-warning" name="designation" id="designation" placeholder="I am Developer/V&V/Quality/Safety/Other . . ." data-rule="minlen:4" data-msg="Please enter at least 4 chars">*
+                                            <div class="validate"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <textarea  class="form-control bg-black text-warning" id="bookMsg" name="message" rows="5"  ></textarea>
+                                        <div class="validate"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div style="display:none">Loading</div>
+                                        <div class="error-message"></div>
+                                        <div id="SuccessMessage" style="display:none">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+                                    </div>
+                                    <div class="text-center"><a id="mailtoBook" target="_blank" class="btn btn-danger" href="" onclick="{{obj}}.click_book(event)">Submit</a></div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

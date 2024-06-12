@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Raise";
+}
+<script type="text/javascript">
+    var RaiseApp = {
+        index: 0,
+        new_tool: null,
+
+        start_action: function () {
+            Promise.all([
+                Raise.start_action(null, "Raise"),   
+                EditQuestionTable.start_action(null, "edit_question")
+            ]).then(values => {
+                theApp.RaiseElementUpdatedEvent();
+                RaiseApp.afterRender();
+            });
+        },
+        click_button: function (e) {
+            alert("lalala");
+            
+        },
+        afterRender: function () {
+            var short_cuts = [];
+            var short_cut = {};
+            short_cut.id = "Raise"; short_cut.text = "Raise";
+            short_cuts.push(short_cut);
+
+            short_cut = {};
+            short_cut.id = "your_questions"; short_cut.text = "Your Questions";
+            short_cuts.push(short_cut);
+            
+            Banner.Show_ShortCuts(short_cuts)
+            Banner.remove_specials();
+            Banner.SetBannerTitles("Welcome To VNV Overflow", "White", "YOUR QUERIES IS OURS NOW!!!! ", "VNV Overflow ", "White", "You are the limit");
+            //Pest.GenerateHTMlAndJavaScript("EditQuestionTable", {
+            //    "SNo": "S.No",
+            //    question: "Question",
+            //},
+            //    {
+            //        TotRecURL: '/Home/GetRecordCount',
+            //        getPageDataURL: "/Home/GetNextSet?offset=_OFFSET_&limit=_LIMIT_&orderby=id",
+            //    });
+        },
+    };
+
+    $(document).ready(() => RaiseApp.start_action());
+</script>
+<Raise></Raise>
+<button class="btn btn-primary" onclick="RaiseApp.click_button(event)">Click here</button>
+<edit_question></edit_question>

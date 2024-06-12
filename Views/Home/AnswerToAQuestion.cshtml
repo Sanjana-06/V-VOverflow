@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "AnswerToAQuestion";
+}
+<script>
+    function getQuestionAnswers_mock(qid) {
+        let qa = {};
+        qa.objectName = "theAnswerApp";
+        qa.question = "Who the hell is ADO.NET?";
+        qa.id = qid;
+        let answers = [];
+        for (let i = 0; i < 3; ++i) {
+            let ans = {};
+            ans.id = 1 + i;
+            if (i === 0) ans.isEditable = true;
+            switch (i) {
+                case 0:
+                    ans.mail = "Dr.sesha@alstomgroup.com";
+                    ans.name = "Dr.sesha";
+                    ans.answer = `ADO.NET provides consistent access to data sources such as SQL Server and XML, and to data sources exposed through OLE DB and ODBC.Data - sharing consumer applications can use ADO.NET to connect to these data sources and retrieve, handle, and update the data that they contain.
+                                                      The ADO.NET classes are found in System.Data.dll, and are integrated with the XML classes found in System.Xml.dll.For sample code that connects to a database, retrieves data from it, and then displays that data in a console window`
+                    break;
+                case 1:
+                    ans.mail = "Rohan@alstomgroup.com";
+                    ans.name = "Rohan Roy";
+                    ans.answer = `ADO.NET separates data access from data manipulation into discrete components that can be used separately or in tandem.ADO.NET includes.NET Framework data providers for connecting to a database, executing commands, and retrieving results.Those results are either processed directly, placed in an ADO.NET DataSet object in order to be exposed to the user in an ad hoc manner, combined with data from multiple sources, or passed between tiers.The DataSet object can also be used independently of a.NET Framework data provider to manage data local to the application or sourced from XML.`;
+                    break;
+                case 2:
+                    ans.mail = "Sanjana@alstomgroup.com";
+                    ans.name = "Sanjana Intern";
+                    ans.answer = `There are large amounts of books written to cover this topic ... so this won't be an exhaustive answer, but this will give you the necessary information needed to begin. And it is very much simplified.
+                                                       ADO.NET is a framework that allows you to manage, in memory, the data retrieved from the database(permanent storage) and connect it to display objects(textboxes, etc).Access databases have all the "layers" contained in it(the form, query, tables) and you don't have to mess too much with the activities to retrieve the information and display them. However, now that you have graduated to a Visual Studio project, you need to manage each of the layers`;
+                    break;
+            }
+            answers.push(ans);
+        }
+        qa.answers = answers;
+        return qa;
+    }
+</script>
+<script type="text/javascript">
+    var theAnswerApp = {
+        myModal: null,
+        qa: null,
+        url_qid: 123,
+        start_action: async function () {
+            setTimeout(() => theAnswerApp.afterRender());
+            let qid = parseInt(getParameterByName("qid"));
+            //theAnswerApp.qa = getQuestionAnswers_mock(qid);
+            let qa = await theAnswerApp.getQuestionAnswers(qid);
+            theAnswerApp.qa = JSON.parse(qa);
+            theAnswerApp.qa.objectName = "theAnswerApp";
+            theAnswerApp.generatehtml_template();
+        },
+        getQuestionAnswers: function (qid) {
+           return $.ajax({
+                url: config.contextPath + "Home/GetQuestionAndAnswer",
+                data: { "qid": qid }
+            })
+        },
+        generatehtml_template: function () {
+            let html_template = $("#qa_template").text();
+            let final_html = Handlebars.compile(html_template)(theAnswerApp.qa);
+            $("#simer").html(final_html);
+            if (theAnswerApp.qa.answers.length >= BasicAction.max_allowed_answers) $("#new_answer").hide();
+        },
+        discussAnswer: function (e, question, answer) {
+            alert(question);
+            let mail_body = $(e.target).attr("href");
+            let new_mail_body = mail_body.replace('_QA_', "Q.) " + question + "%0A%0A" + "Ans.) " + answer).replace(/\n/g, "%0A");
+            $(e.target).attr("href", new_mail_body);
+        },
+        SubmitAnswer: async function (e) {
+            let new_ans = $("#new_ans").text();
+            if (!new_ans) return;
+            let user_name = await $.ajax({ url: config.contextPath + "Home/GetUserName" });
+            if (!user_name) {
+                LogIn.ShowLoginDialog();
+                return;
+            }
+            let sumbit_ans_result = await $.ajax({
+                url: config.contextPath + "Home/SubmitAnswer", method: "POST",
+                data: {
+                    "new_answer": new_ans,
+                    "qid": theAnswerApp.qa.id
+                }
+            })
+            if ("true" === sumbit_ans_result) alert("Answer submitted successfully");
+        },
+        
+        afterRender: async function () {
+            var short_cuts = [];
+            var short_cut = {};
+            short_cut.id = "answer"; short_cut.text = "Answers";
+            short_cuts.push(short_cut);
+            short_cut = {};
+
+            Banner.Show_ShortCuts(short_cuts)
+            Banner.remove_specials();
+            Banner.SetBannerTitles("Welcome To VnV Overflow", "White", "YOUR QUERIES IS OURS NOW!!!! ", "VNV Overflow ", "White", "You are the limit");
+        }
+    }; $(document).ready(() => theAnswerApp.start_action())
+</script>
+
+<div id="answer" class="container mt-4  text-primary border border-1 rounded-6" style="margin-bottom:80px;" data-aos="flip-left">
+    <div class="row mb-3" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col text-center">
+            <span class="bg-primary text-white p-2  rounded">Answers</span>
+            <div>
+                <h1 class="text-caption-color mt-3 mb-3">To A Question</h1>
+                <hr class="shr" />
+            </div>
+        </div>
+    </div>
+    <div class="p-4">
+        <div class="row ">
+            <div id="simer"></div>
+        </div>
+        <div id="new_answer" class="row">
+            <div class="col">
+                <div>
+                    <h2 class="d-inline float-start">Add your answer</h2>
+                    <button onclick="theAnswerApp.SubmitAnswer(event)" class="btn btn-primary float-end">Submit &nbsp;&nbsp; <i class="bi bi-save"></i></button>
+                </div>
+                <div style="clear:both">
+                    <div id="new_ans" contenteditable="true" class="border-2 p-2 rounded-3 bg-black text-white form-control" style="min-height:100px;" placeholder="Enter your answer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+<script type="text/template" id="qa_template">
+    <div class="col" id="qa">
+        <h2 class="d-inline">Q.</h2> <h2 class="d-inline">{{{question}}}</h2>
+        <hr />
+        {{#each answers as |ans|}}
+        <div>
+            <div class="text-decoration-underline">
+                <a onclick="{{../objectName}}.discussAnswer(event, `{{../question}}`, `{{{ans.answer}}}`)"
+                   href="mailto:{{ans.mail}}?subject=Discussion Needed&body=I Need discuss about this answer%0A%0A_QA_%0A%0ACan you lease help me%0AThanks in Advance">
+                    {{ans.name}}
+                </a>
+                @*<i class="bi bi-person float-end rounded-circle p-3 bg-black"></i>*@
+            </div>
+            <div>
+                {{math @@index "+" 1}}).   {{{ans.answer}}}
+            </div>
+        </div>
+        <hr />
+        {{/each}}
+    </div>
+</script>

@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Book-mark this page</title>
+    <link href="~/wwwroot/favicon.ico" rel="icon">
+
+    <script src="~/wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <link href="~/wwwroot/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/wwwroot/lib/bootstrap/dist/css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/wwwroot/Scripts/Components/ReUse/GenericTable/Pest.css" rel="stylesheet" />
+    <link href="~/wwwroot/css/aos.css" rel="stylesheet" />
+    <link href="~/wwwroot/lib/owlcarousel/assets/owl.carousel.css" rel="stylesheet" />
+    <link href="~/wwwroot/lib/owlcarousel/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="~/wwwroot/css/site.css" rel="stylesheet" />
+
+    <script src="~/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/wwwroot/lib/jquery/dist/jquery.expander.min.js"></script>
+    <script src="~/wwwroot/js/Utils.js"></script>
+
+    <script src="~/wwwroot/js/modernizr-2.8.3.js"></script>
+    <script src="~/wwwroot/js/aos.js"></script>
+    <script src="~/wwwroot/lib/owlcarousel/owl.carousel.js"></script>
+
+    @*##################################################*@
+    @*##################################################*@
+    @*################### OOjaH Framework Components ###################*@
+    <script src="~/wwwroot/Scripts/Dependencies/handlebars.min.js"></script>
+    <script src="~/wwwroot/Scripts/Dependencies/underscore-umd-min.js"></script>
+    <script src="~/wwwroot/Scripts/OOjaH/TemplateRenderer.js"></script>
+    @*################### OOjaH Framework Components ###################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*OOjaH Reusable Components*@
+    <script src="~/wwwroot/Scripts/Components/ReUse/TheTeam/TheTeam.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/OwlPublication/OwlPublication.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/BootPublication/BootPublication.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/WhatPeopleSay/WhatPeopleSay.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/ReUseableCode/ReUseableCode.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/Gallery/Gallery.js"></script>
+    <script src="~/wwwroot/js/IsoMetric.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/Sticky/Sticky.js"></script>
+    @*OOjaH Reusable Components*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*OOjaH Application Components*@
+    <script src="~/wwwroot/Scripts/Components/Banner/Banner.js"></script>
+    <script src="~/wwwroot/Scripts/Components/News/News.js"></script>
+    <script src="~/wwwroot/Scripts/Components/TitBit/TitBit.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Launch/Launch.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Training/Training.js"></script>
+    <script src="~/wwwroot/Scripts/Components/WorkShop/WorkShop.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Footer/Footer.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Header/Header.js"></script>
+    <script src="~/wwwroot/Scripts/Components/AboutUS/AboutUS.js"></script>
+    <script src="~/wwwroot/Scripts/Components/AboutMe/AboutMe.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Upload/Upload.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Isometric/IsometricComp.js"></script>
+    <script src="~/wwwroot/Scripts/Components/searchResults/searchResults.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Raise/Raise.js"></script>
+    <script src="~/wwwroot/Scripts/Components/allQueries/allQueries.js"></script>
+    <script src="~/wwwroot/Scripts/Components/Query/Query.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/LogIn/LogIn.js"></script>
+    <script src="~/wwwroot/Scripts/Components/ReUse/GenericTable/Pest.js"></script>
+    <script src="~/wwwroot/Scripts/Components/EditQuestion/EditQuestion.js"></script>
+    @*OOjaH Application Components*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*Cyber Application Components*@
+    <script src="~/wwwroot/Scripts/Components/Cyber/Publication/Publication.js"></script>
+    @*Cyber Application Components*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*##################################################*@
+    @*############# Make MPA to SPA #############*@
+    <script src="~/wwwroot/js/ALT`SPA.js"></script>
+    @*############# Make MPA to SPA #############
+        ##################################################
+        ##################################################*@
+    <script type="text/javascript">
+        var config = {
+            contextPath: '@Url.Content("~")',
+        };
+
+    </script>
+    <script src="~/Scripts/FireBase/firebase-app.js"></script>
+    <script src="~/Scripts/FireBase/firebase-messaging.js"></script>
+    <script src="~/FireBaseNotification.js"></script>
+    <script type="text/javascript">
+
+        var BasicAction = {
+            user: {
+                name: "",
+                email:""
+            },
+            max_allowed_answers : @Utils.BasicAction.max_allowed_answers
+        };
+
+        var theApp = {
+            event: new Event('OOjAH'),
+            RaiseElementUpdatedEvent: function () {
+                document.dispatchEvent(theApp.event);
+            },
+            start_action: function () {
+                LogIn.start_action(null, "LogIn");
+                theApp.DoMoonRise();
+                theApp.ListenForDOMElementUpdated();
+                //theApp.Start_Spinner();
+                theApp.DoMoveTop();
+                Footer.start_action();
+                Header.start_action();
+                Banner.start_action();
+                //document.addEventListener('OOjAH', function (e) {
+                //    alert("Labamba");
+                //    theApp.AOSInitialize();
+                //}, false);
+                setTimeout(() => {
+                    //theFireBaseNotification.start_action(firebaseConfig);
+                }, 1000);
+                theApp.AOSInitialize().then(jData => {
+                    setTimeout(() => {
+                        let goSomewhere = window.location.href.split('#');
+                        if (goSomewhere.length < 2) return;
+                        goSomewhere = goSomewhere[1];
+                        //alert("need to navigate to: " + goSomewhere)
+                        let theEle = document.getElementById(goSomewhere);
+                        if (theEle != null) theEle.scrollIntoView();
+                    }, 1000)
+                });
+            },
+            DoMoonRise: function () {
+                let bEle = $("#moon");
+                let ht = 200;
+                let factor = .5; let variation = 0;
+                $({ scale: 0 }).animate({ scale: 1 },
+                    {
+                        duration: 500,
+                        step: function () {
+                            $(bEle).css({ transform: 'scale(' + this.scale + ')' });
+                        },
+                        complete: function () {
+                        }
+                    });
+                $(window).scroll(function (e) {
+                    variation += factor;
+                    //let sctop = $(window).scrollTop();
+                    if (variation > ht || variation <= 0) {
+                        factor *= -1;
+                    }
+                    let opal = 1 - (variation / ht);
+                    //$(document)[0].title = variation + "," + opal.toFixed(2);
+                    $("#moon").css({ opacity: parseFloat(opal) });
+                });
+            },
+            Start_Spinner: function () {
+                var spinner = function () {
+                    setTimeout(function () {
+                        if ($('#spinner').length > 0) {
+                            $('#spinner').removeClass('show');
+                        }
+                    }, 1);
+                };
+                spinner();
+            },
+            DoMoveTop: function () {
+                function TakeAction() {
+                    if ($(window).scrollTop() > 300) {
+                        $('.move-top').fadeIn(3000);
+                    } else {
+                        $('.move-top').fadeOut(3000);
+                    }
+                }
+                $(window).scroll(function () {
+                    TakeAction();
+                });
+                //$('.back-to-top').click(function () {
+                //    $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
+                //    return false;
+                //});
+                TakeAction();
+            },
+            ListenForDOMElementUpdated: function () {
+                document.addEventListener('OOjAH', function (e) {
+                    theApp.AOSInitialize();
+                }, false);
+            },
+            AOSInitialize: function () {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        $("body").css({ "overflow-x": "hidden" });
+                        //https://github.com/michalsnik/aos
+                        theApp.AOSInit();
+                        resolve("AOS Init Done");
+                    }, 1000);
+                })
+            },
+            AOSInit: function () {
+                //AOS.init();
+                // You can also pass an optional settings object
+                // below listed default settings
+                AOS.init({
+                    // Global settings:
+                    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+                    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+                    initClassName: 'aos-init', // class applied after initialization
+                    animatedClassName: 'aos-animate', // class applied on animation
+                    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+                    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+                    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+                    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+                    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+                    offset: 120, // offset (in px) from the original trigger point
+                    delay: 50, // values from 0 to 3000, with step 50ms
+                    duration: 3000, // values from 0 to 3000, with step 50ms
+                    easing: 'ease', // default easing for AOS animations
+                    once: false, // whether animation should happen only once - while scrolling down
+                    mirror: true, // whether elements should animate out while scrolling past them
+                    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+                });
+            }
+        }; $(document).ready(() => theApp.start_action());
+    </script>
+    @*<script src="@Url.Content("~")wwwroot/js/firebase-app.js"></script>
+        <script src="@Url.Content("~")wwwroot/js/firebase-messaging.js"></script>
+        <script src="@Url.Content("~")FireBaseNotification.js"></script>*@
+</head>
+<body class="bg-dark text-light">
+    <div class="moon" id="moon"></div>
+    <LogIn></LogIn>
+    <header></header>
+    <Banner></Banner>
+    <div id="specialTag">
+        <specialTag>
+            @RenderBody()
+        </specialTag>
+    </div>
+    <Footer></Footer>
+    <a href="#header" class="btn btn-danger  rounded-circle move-top opacity-50"><i class="bi bi-arrow-up text-white"></i></a>
+</body>
+</html>

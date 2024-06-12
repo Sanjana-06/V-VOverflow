@@ -1,0 +1,638 @@
+﻿/********** Template CSS **********/
+body {
+    font-family: Segoe UI,Arial,tahoma,arial,verdana,sans-serif !important;
+}
+
+.moon {
+    background: #159;
+    text-align: center;
+    background-image: linear-gradient(-40deg,#222,transparent,#111), linear-gradient(40deg,#222,transparent,#111), linear-gradient(-40deg,#222,transparent,#111), linear-gradient(40deg,#222,transparent,#111);
+    background-size: 300%;
+    background-position: center;
+    content: '';
+    display: block;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    background: #ddd;
+    box-shadow: 0 0 50px gold,0 0 150px gold, inset 0 20px 20px 40px white, inset 30px 0 35px 50px grey;
+    /*box-shadow: 0 0 50px gold,0 0 150px gold, inset 0 20px 20px 40px whitesmoke, inset 30px 0 35px 50px ivory; original*/
+    transition: 1s;
+    position: fixed;
+    z-index: -100;
+    top: 95px;
+    left: 25px;
+    transform: scale(0);
+}
+
+    .moon:hover {
+        background-color: pink;
+        transition: 1s;
+    }
+/* Handle */
+.alstom-round {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    background-color: rgb(220,50,35);
+    /*margin-bottom: -17px;
+    margin-right: -13px;
+    margin-top: -20px;*/
+    /* margin: -15px;
+    margin-left: 20px;*/
+    /*margin:20px;*/
+    border-radius: 50%;
+    display: block;
+    float: right;
+    margin: 0px auto;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    /*width: 15px;*/
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*background: #f1f1f1;*/
+    /*background: #888;*/
+    background-color: rgb(30,50,70);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /*background: #888;*/
+    border: 1px solid rgba(220,50,35,1);
+    border-right: 2px solid rgba(220,50,35,.5);
+    background: rgb(30,50,70);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(120,130,145,.5);
+    }
+
+.circular_image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(30,50,70);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .circular_image img {
+        width: 100%;
+    }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.arms {
+    font-size: 45px;
+    margin-left: 20px;
+}
+
+.glow {
+    /*font-size: 80px;*/
+    color: white;
+    /*text-align: center;*/
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+
+.modal-content {
+    padding: 2px;
+    border-radius: 5px;
+}
+/*********************CUSTOM STYLES***************/
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+.mt-6 {
+    margin-top: 100px;
+}
+
+.nav-text {
+    color: rgb(210,215,220);
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.caption {
+    font-weight: 800;
+    font-size: 45px;
+    text-transform: uppercase;
+    color: rgb(220,50,35);
+}
+
+.nav-link.active {
+    color: rgb(220,50,35) !important;
+}
+
+.nav-link:hover {
+    color: rgb(155,135,95) !important;
+}
+
+.shr {
+    margin-left: 25%;
+    width: 50%;
+}
+
+.shrd {
+    background-color: rgb(220,50,35);
+    margin-left: 25%;
+    width: 50%;
+}
+
+p, li, .p-text {
+    color: white !important;
+}
+
+.text-primary {
+    /*color: red !important;*/
+    color: white !important;
+}
+
+.text-blazing {
+    color: rgb(220,50,35);
+}
+
+.text-dark {
+    color: rgb(30,50,70) !important;
+}
+
+.text-caption-color {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    /*font-family: "Playfair Display";*/
+}
+
+.text-sublime {
+    color: rgb(120, 130, 145);
+}
+
+.text-mild {
+    color: rgb(210, 215, 220);
+}
+.text-oneline{
+    white-space:nowrap;
+}
+.fs-small {
+    font-size: 12px;
+}
+.fs-very-small {
+    font-size: 10px;
+}
+.bg-dark-sublime {
+    /*background-color: rgba(0,0,0,.85);*/
+    background-color: rgba(30,50,70,.85);
+}
+
+.bg-dark {
+    /*background-color: rgb(25, 28, 40) !important;*/
+    background-color: rgb(30, 50, 70) !important;
+}
+
+.bg-primary {
+    background-color: rgb(220,50,35) !important;
+}
+
+.bg-semi-dark {
+    background-color: rgb(75, 90, 105) !important;
+}
+
+.bg-secondary {
+    /*background-color: rgb(25, 28, 40) !important;*/
+    background-color: rgb(120, 130, 145) !important;
+}
+
+.b-10 {
+    border-radius: 10px;
+}
+
+.bg-pannel {
+    border-radius: 10px;
+    background-color: rgb(30,50,70);
+    color: white;
+}
+
+.bg-pannel-outline {
+    border: 1px solid rgba(220,220,220,.3)
+}
+
+.btn-primary {
+    background-color: rgb(30,50,70) !important;
+}
+
+.hov, .hov a, .hov p  {
+    transition: 5s ease-in-out;
+}
+
+    .hov:hover a {
+        color: black;
+    }
+
+    .hov:hover p {
+        color: black;
+    }
+    
+    .hov:hover, .hov:hover a {
+        color: black;
+        background-color: red;
+    }
+
+.on-focus {
+    padding: 3px;
+    border: 2px solid green;
+    border-radius: 5px;
+    position: relative;
+}
+
+    .on-focus::before {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-left: 2px solid yellow;
+        border-top: 2px solid yellow;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        z-index: 1;
+        transition: all .3s ease-out;
+    }
+
+    .on-focus::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-bottom: 2px solid yellow;
+        border-right: 2px solid yellow;
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+        z-index: 2;
+        transition: all .3s ease-out;
+    }
+
+    .on-focus:hover::before {
+        transform: scale(1.7);
+    }
+
+    .on-focus:hover::after {
+        transform: scale(1.7);
+    }
+
+.high-lighter {
+    background-color: rgb(30,50,70);
+}
+
+.high-lighter {
+    position: absolute;
+    font-size: 25px;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-weight: 400;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    color: rgb(220, 50, 35);
+    transition: 1s ease-in-out;
+}
+
+    .high-lighter:hover {
+        color: white;
+        bottom: 30px;
+        height: 45px;
+        width: 45px;
+        font-weight: 800;
+        font-size: 40px;
+        transform: scale(1.3)
+    }
+
+.icon {
+    background-color: rgb(30,50,70);
+    position: absolute;
+    font-size: 15px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-weight: 400;
+    left: 0px;
+    top: 50px;
+    z-index: 2;
+    color: rgb(205, 164, 94);
+    transition: 1s ease-in-out;
+}
+
+
+
+.team {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid rgb(200,200,200);
+}
+
+.litbr {
+    border: 1px solid rgb(200,200,200);
+}
+
+.img-cap {
+    position: relative;
+    filter: grayscale(100%);
+}
+
+    .img-cap span {
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        padding: 10px;
+        font-size: 13px;
+        background-color: rgba(0,0,0,0);
+        transition: 2.3s;
+        font-weight: 600;
+        font-family: calibri;
+        font-style: italic;
+        color: rgba(0,0,0,0);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .img-cap:hover span {
+        background-color: rgba(255,255,255,.5);
+        opacity: 1;
+        color: rgb(220,50,35);
+    }
+
+input::placeholder {
+    color: yellow;
+}
+
+.move-top {
+    position: fixed;
+    display: none;
+    right: 40px;
+    bottom: 40px;
+    z-index: 99;
+}
+
+.circular_image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: blue;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .circular_image img {
+        width: 100%;
+    }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.arms {
+    font-size: 45px;
+    margin-left: 20px;
+}
+
+.glow {
+    /*font-size: 80px;*/
+    color: #fff;
+    /*text-align: center;*/
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+
+.test-item-special {
+    border-radius: 50%;
+    font-weight: 800;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.test-item {
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.2);
+}
+
+.test-item-text {
+    padding: 20px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    color: rgb(30,50,70);
+    background-color: rgb(75,90,105);
+}
+
+.shabnam {
+    color: white;
+    margin-right: 10px;
+    transition: 2s;
+}
+
+.shola .active .shabnam {
+    transform: scale(1.1) translate(0px, -20px);
+    color: darkgoldenrod;
+    background-color: rgb(210,240,225) !important;
+}
+
+.row-no-pad {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: rgba(150,175,12, .5);
+    overflow: hidden;
+}
+
+.collage {
+    transition: 1s
+}
+
+    .collage:hover {
+        transform: scale(1.5)
+    }
+
+.lbr {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+
+.rbr {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.rounded-5 {
+    border-radius: 5px;
+}
+
+.rounded-6 {
+    border-radius: 6px;
+}
+
+.rounded-7 {
+    border-radius: 7px;
+}
+
+.rounded-8 {
+    border-radius: 8px;
+}
+
+.rounded-9 {
+    border-radius: 9px;
+}
+
+.rounded-10 {
+    border-radius: 10px;
+}
+
+.halo {
+    box-shadow: 0 0 30px gold,0 0 100px gold, inset 0 20px 20px 40px white, inset 30px 0 35px 50px grey;
+}
+
+.lit-line {
+    background-color: rgba(255,255,255, .3);
+}
+
+.stheader {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.stfooter {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.sthr {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.who {
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.collagefr {
+    width: 250px;
+    border-radius: 5px;
+    background-color: rgb(120,130,145);
+    color: rgb(30,50,70);
+    cursor: pointer;
+}
+
+.dropdown li:hover a {
+    background-color: black !important;
+    /*color: gold !important;*/
+    font-weight: 800;
+}
+
+table, tr, td {
+    padding: 0px;
+    margin: 0px auto;
+    border-collapse: collapse;
+}
+
+.cross {
+    padding: 5px;
+}
+
+.br {
+    min-width: 30px;
+    min-height: 20px;
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+    .cross:focus, .br:focus {
+        outline: none;
+    }
+
+.label {
+    position: absolute;
+    font-size: 10px;
+    margin: 2px;
+}
+
+.mblur {
+    filter: blur(10px);
+    transition: .5s;
+}
+
+    .mblur:hover {
+        filter: blur(0px);
+    }
+
+[contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    position: absolute;
+    color: yellow;
+    opacity: .2;
+    background-color: transparent;
+}
+.more-link, .less-link{
+    color: yellow;
+}
+.more-link:hover, .less-link:hover{
+    color:rgb(220 , 50, 35)
+}

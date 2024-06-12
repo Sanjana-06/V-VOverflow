@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Queries";
+}
+<script type="text/javascript">
+    var allQueriesApp = {
+        index: 0,
+        new_tool: null,
+
+        start_action: function () {
+            //alert("in start action");
+            Promise.all(
+                [
+                    allQueries.start_action(null, "allQueries"),
+                ]
+            ).then(values => {
+                theApp.RaiseElementUpdatedEvent();
+                allQueriesApp.afterRender();
+            });
+        },
+        afterRender: function () {
+            //debugger;
+
+            var short_cuts = [];
+            var short_cut = {};
+            short_cut.id = "all_queries"; short_cut.text = "Queries";
+            short_cuts.push(short_cut);
+            short_cut = {};
+
+            Banner.Show_ShortCuts(short_cuts)
+            Banner.remove_specials();
+            Banner.SetBannerTitles("Welcome To VNV Overflow", "White", "YOUR QUERIES IS OURS NOW!!!! ", "VNV Overflow ", "White", "You are the limit");
+        },
+    }; $(document).ready(() => allQueriesApp.start_action());
+</script>
+<allQueries></allQueries>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "About US";
+}
+<!-- TekBytes Data-->
+<script src="~/wwwroot/Data/TEKBytes/TEKBytes_team.js"></script>
+<!-- TekBytes Data-->
+<script type="text/javascript">
+
+    var aboutApp = {
+        start_action: function () {
+            Promise.all([TheTeam.start_action("TEKBytesTeam", TEKBytes_team), AboutUS.start_action()]).then(values => {
+                theApp.RaiseElementUpdatedEvent();
+
+                var short_cuts = [];
+                var short_cut = {};
+                short_cut.id = "About_us"; short_cut.text = "About US";
+                short_cuts.push(short_cut);
+
+                short_cut = {}; short_cut.id = "team"; short_cut.text = "meet the team";
+                short_cuts.push(short_cut);
+
+                Banner.Show_ShortCuts(short_cuts)
+                Banner.remove_specials();
+            });
+        }
+    }; $(document).ready(() => aboutApp.start_action());
+</script>
+<AboutUS></AboutUS>
+<TEKBytesTeam></TEKBytesTeam>

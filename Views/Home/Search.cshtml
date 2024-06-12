@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+<script type="text/javascript">
+
+    var aboutApp = {
+        start_action: function () {
+            setTimeout(() => {
+                var short_cuts = [];
+                var short_cut = {};
+
+                short_cut.id = "search"; short_cut.text = "search";
+                short_cuts.push(short_cut);
+
+                Banner.Show_ShortCuts(short_cuts)
+                Banner.remove_specials();
+            });
+        }
+    }; $(document).ready(() => aboutApp.start_action());
+</script>
+<div id="search" class="container mt-4  text-primary">
+    <div class="row mb-3" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col text-center">
+            <span class="bg-primary text-white p-2  rounded">Search</span>
+            <div>
+                <h1 class="text-caption-color mt-3 mb-3">by Topics, name, keywords etc . . .</h1>
+                <hr class="shr" />
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="mb-5">            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email1" value="sesha@gmai.com" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="question">Keywords:</label>
+                <input type="text" id="question1" name="question" value="How the weather today" class="form-control" required>
+            </div>
+            @*
+            <div class="form-group mb-3">
+                <label for="email">Category:</label>
+                <select id="category" class="form-control">
+                    <option value="cat_1">Category 1</option>
+                    <option value="cat_2">Category 2</option>
+                    <option value="cat_3">Category 3</option>
+                    <option value="cat_4">Category 4</option>
+                </select>
+            </div>
+            *@
+            <button id="submit" class="btn btn-primary mt-2" onclick="Raise.post_click_button(event)">Submit</button>
+        </div>
+    </div>
+</div>
+

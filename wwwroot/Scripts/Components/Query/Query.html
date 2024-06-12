@@ -1,0 +1,84 @@
+<section class="question">
+    <h2>@Model.Email</h2>
+    <p>@Model.QuestionText</p>
+</section>
+
+<section class="answer">
+    <h2>Answer the Question</h2>
+    <form>
+        <div class="form-group">
+            <label for="answer">Your email:</label>
+            <input type="email" id="Answer_email" name="Answer_email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="answer">Your Answer:</label>
+            <textarea class="form-control" id="Answers" name="Answers"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" onclick="Query.postsubmitanswer()">Submit Answer</button>
+    </form>
+</section>
+
+<section class="previous-answers">
+    <h2>Previous Answers</h2>
+    <ul class="list-group answers-list">
+        @foreach (var answer in Model.Answers)
+        {
+        <li class="list-group-item">
+            <p>@answer.AnswerText</p>
+            <small>@answer.Email</small>
+        </li>
+        }
+    </ul>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<main class="mx-5">
+    <section class="question">
+        <h2>Question Email</h2>
+        <p>Question</p>
+    </section>
+
+    <section class="answer">
+        <h2>Answer the Question</h2>
+        <form>
+            <div class="form-group">
+                <label for="answer">Your email:</label>
+                <input type="email" id="Answer_email" name="Answer_email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="answer">Your Answer:</label>
+                <textarea class="form-control" id="Answers" name="Answers"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" onclick="Query.click_button()">Submit Answer</button>
+        </form>
+    </section>
+
+    <section class="previous-answers">
+        <h2>Previous Answers</h2>
+        <ul class="list-group answers-list">
+            <li class="list-group-item">
+
+                <p>Previous answer goes here...</p>
+            </li>
+
+        </ul>
+    </section>
+</main>-->

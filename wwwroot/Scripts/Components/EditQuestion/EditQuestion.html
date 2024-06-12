@@ -1,0 +1,85 @@
+﻿<div id="your_questions" class="container mt-4">
+    <div class="row mb-3" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col text-center">
+            <span class="bg-semi-dark p-2 text-dark rounded">Checkout</span>
+            <div>
+                <h1 class="text-caption-color mt-3 mb-3">Your Questions</h1>
+                <hr class="shr" />
+            </div>
+        </div>
+    </div>
+    <div data-aos="flip-left">
+        <h5>The Following are the questions raised by you, fell free to delete {if you are shameful that you ever asked such a dumb question in life} 
+        and edit them in case you missed out on some wording</h5>
+        <PEST EditQuestionTable.theUsageTable uid_EditQuestionTable>
+            <div id="pager_edit_EditQuestionTable" class="modal fade" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body bg-dark">
+                            <div class="row mt-1">
+                                <div class="col">S.No:</div>
+                                <div class="col">
+                                    <input type="text" class="form-control bg-dark text-warning" id="SNo_EditQuestionTable" />
+                                </div>
+                            </div><div class="row mt-1">
+                                <div class="col">Question:</div>
+                                <div class="col">
+                                    <input type="text" class="form-control bg-dark text-warning" id="question_EditQuestionTable" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="EditQuestionTable.save_click(event)">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pager_EditQuestionTable" class="no_highlights d-none mt-2">
+                <hr />
+                <div class="title  d-none" Total_Records_EditQuestionTable>
+                    <h6 id="totalRecords_EditQuestionTable" class="title"></h6>
+                </div>
+                <div class="title  d-none" Total_Pages_EditQuestionTable>
+                    <h6 id="totalPages_EditQuestionTable" class="title"></h6>
+                </div>
+                <div class="title d-none" Records_Per_Page_EditQuestionTable>
+                    <h6 class="title">- Records Per page =</h6>
+                    <select id="RecordsPerPage_EditQuestionTable" onchange="EditQuestionTable.theUsageTable.onItemsPerPageChange(event)">
+                        <option selected value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="250">250</option>
+                    </select>
+                </div>
+                <div class="title d-none" Current_Page_EditQuestionTable>
+                    <h5 class="title" id="CurrentPage_EditQuestionTable"></h5>
+                </div>
+                <div class="title d-none" Go_to_Page_EditQuestionTable>
+                    <h5 class="title">- Go to Page</h5>
+                    <input type="text" style="width: 30px; font-size: 10px;" id="GoToPage_EditQuestionTable" onchange="EditQuestionTable.theUsageTable.GoToPageChange(event)" />
+                </div>
+                <div class="pageBar d-none" Page_Bar_EditQuestionTable>
+                    <div class="arrow d-none" Start_Batch_EditQuestionTable onclick="EditQuestionTable.theUsageTable.Left_double_arrow_Click(event)">&Larr; </div>
+                    <div class="arrow" onclick="EditQuestionTable.theUsageTable.Left_arrow_Click(event)">&lt; </div>
+                    <div id="items_EditQuestionTable" class="items">
+                        <span class="pItem">1</span> <span class="pItem">2</span> <span class="pItem">3</span> <span class="pItem">4</span>
+                    </div>
+                    <div class="arrow" onclick="EditQuestionTable.theUsageTable.Right_arrow_Click(event)">&gt; </div>
+                    <div class="arrow d-none" End_Batch_EditQuestionTable onclick="EditQuestionTable.theUsageTable.Right_double_arrow_Click(event)">&Rarr; </div>
+                </div>
+                <hr style="clear: both;" />
+            </div>
+            <!-- <div id="TableCont_EditQuestionTable"></div>  -->
+            <table class="table table-dark table-hover table-striped table-bordered">
+                <thead><tr></tr></thead>
+                <tbody id="TableCont_EditQuestionTable"></tbody>
+            </table>
+        </PEST>
+    </div>
+</div>

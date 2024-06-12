@@ -1,0 +1,33 @@
+<div class="container py-5" data-aos="zoom-in" data-aos-duration="3000">
+    <div id="all_queries" class="container mt-4  text-primary">
+        <div class="row mb-3" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="col text-center">
+                <span class="bg-primary text-white p-2  rounded">Questions</span>
+                <div>
+                    <h1 class="text-caption-color mt-3 mb-3 text-capitalize">That are plaguing our lives</h1>
+                    <hr class="shr" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Question</td>
+                        <td>Email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each rows as |row|}}
+                    <tr>
+                        <td> <a target="_blank" href="~/Home/AnswerToAQuestion?qid={{row.id}}">{{math @index "+" 1}}</a></td>
+                        <td>{{row.question}}</td>
+                        <td>{{row.mail}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

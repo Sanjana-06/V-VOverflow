@@ -1,0 +1,47 @@
+﻿<div id="{{id}}" class="container mt-4">
+    <div class="row mb-3" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col text-center">
+            <span class="bg-semi-dark p-2 text-dark rounded">{{title}}</span>
+            <div>
+                <h1 class="text-caption-color mt-3 mb-3">{{{sub_title}}}</h1>
+                <hr class="shr" />
+            </div>
+        </div>
+    </div>
+    <div data-aos="flip-left">
+        {{#each rows as |row|}}
+        <!--<p class="text-white">Row Id : {{@index}}</p>-->
+        <div class="row mt-6">
+            {{#each this}}
+            <div class="col">
+                <!--<p class="text-white">Col Id : {{@index}}</p>-->
+                <div class="collagefr hov" angle="{{angle}}" style="transform:{{this.rotate}};" onclick="{{../../obj}}.Handle_Click(event)">
+                    <div class="p-3 stheader">
+                        <div>
+                            <b class="text-uppercase fs-3">Selfie with </b>
+                            <i class="bi bi-hand-thumbs-up" onclick="{{../../obj}}.Handle_Likes(event, '{{uid}}')"></i>
+                            <!--<span id="{{../../id}}_{{india}}" style="font-size:10px">{{math @../index "+" @index}}</span>-->
+                            <!--<span id="{{../../id}}_{{india}}" style="font-size:10px">0</span>-->
+                            <span id="{{uid}}" style="font-size:10px">0</span>
+                        </div>
+                        <div><b>{{this.wce_name}}<sub style='font-size:10px;'>&nbsp;&nbsp;&nbsp;... {{{this.title}}}</sub></b></div>
+                    </div>
+                    <a target="_blank" href="{{this.src}}">
+                        <img class="w-100" src="{{this.src}}" />
+                    </a>
+                    <div class="p-3 stfooter">
+                        <div class="who">
+                            {{{this.position}}}
+                        </div>
+                        <hr class="sthr" />
+                        <div style="font-size:14px;">
+                            {{{this.text}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</div>

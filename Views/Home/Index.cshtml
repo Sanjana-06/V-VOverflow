@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "VnV Overflow";
+}
+<!-- TekBytes Data-->
+<script src="~/wwwroot\Data/TEKBytes/TEKBytes_team.js"></script>
+<script src="~/wwwroot\Data/TEKBytes/ReUseableStuffs.js"></script>
+
+<!-- TekBytes Data-->
+<script type="text/javascript">
+    var indexApp = {
+        start_action: function () {
+
+            var data = {
+                animation: "flip-right",
+                wd: "100%",
+                id: "publication",
+                title: "Publication",
+                sub_title: "RailSketch",
+                images: [config.contextPath + "wwwroot/img/About_1.jpg", config.contextPath + "wwwroot/img/About_2.jpg", config.contextPath + "wwwroot/img/About_3.jpg",]
+            }
+            Promise.all(
+                [
+                    //MyTeam.start_action("TEKBytesTeam", TEKBytes_team),
+                    allQueries.start_action(null, "allQueries"),
+                    News.start_action(),
+                    //TitBit.start_action(),
+                    //Launch.start_action(),
+                    //(new OwlPublication("Publication", data)).start_action(),
+                    //Training.start_action(),
+                    ////WorkShop.start_action(),
+                    ////ReUseableCode.start_action(ReUseableStuffs),
+                    //AboutMe.start_action()
+                ]
+            ).then(values => {
+                theApp.RaiseElementUpdatedEvent();
+                indexApp.afterRender();
+            });
+        },
+        afterRender: function () {
+            //alert("labamba");
+            var short_cuts = [];
+            var short_cut = {};
+
+            short_cut.id = "news"; short_cut.text = "News";
+            short_cuts.push(short_cut);
+
+            short_cut = {}; short_cut.id = "all_queries"; short_cut.text = "Questions";
+            short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "launch"; short_cut.text = "New Launch";
+            //short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "publication"; short_cut.text = "publication";
+            //short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "team"; short_cut.text = "meet the team";
+            //short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "AboutMe"; short_cut.text = "About Yourself";
+            //short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "meter"; short_cut.text = "Software Métier";
+            //short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "Training"; short_cut.text = "Trainings";
+            //short_cuts.push(short_cut);
+
+            //short_cut = {}; short_cut.id = "Blood"; short_cut.text = "Our Blood";
+            //short_cuts.push(short_cut);
+
+            Banner.Show_ShortCuts(short_cuts)
+            Banner.remove_specials();
+            Banner.SetBannerTitles("Welcome To VNV Overflow", "White", "YOUR QUERIES IS OURS NOW!!!! ", "VNV Overflow ", "White", "You are the limit");
+            //$("#expText").expander({
+            //    slicePoint: 500,
+            //    showWordCount: true,
+            //});           
+        }
+    }; $(document).ready(() => indexApp.start_action());
+</script>
+
+@*<span class="text-uppercase ps-4 text" style="font-size:8px;">June 2022 - Edition</span>*@
+<News></News>
+<allQueries></allQueries>
+@*   
+    <TitBit></TitBit>
+    <Training></Training>*@
+@*<Launch></Launch>*@
+@*<Publication></Publication>*@
+@*<TEKBytesTeam></TEKBytesTeam>*@
+
+@*<WorkShop></WorkShop>
+    <ReUseableCode></ReUseableCode>*@
+@*<AboutMe></AboutMe>*@

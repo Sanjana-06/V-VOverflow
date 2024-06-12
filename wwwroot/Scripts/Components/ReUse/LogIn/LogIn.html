@@ -1,0 +1,24 @@
+﻿<div class="modal fade " id="LogInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-black">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Please Log In </h1>
+                <button type="button" class="btn-close bg-warning" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input id="user_email" value="sesha.sai@alstomgroup.com" type="email" class="form-control bg-transparent text-primary" placeholder="Enter Mail Id need not enter alstomgroup.com" />
+                <input id="user_pwd" value="123" type="password" class="form-control bg-transparent text-primary" placeholder="Enter password" />
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Not Interested</button>
+                    <button type="button" class="btn btn-primary" onclick="LogIn.LogInUser(event, $('#user_email').val(),$('#user_pwd').val())">Submit</button>
+                </div>
+                <a class="text-warning text-start" target="_blank" href="mailto:sesha.sai@alstomgroup.com?subject=VnV Overflow, Credentials needed&body=I Need credentials to this portal%0A%0A_QA_%0A%0ACan you please help me%0AThanks in Advance">
+                    Don't have credentials click here to Register
+                </a>
+            </div>
+            <div class="mb-3"></div>
+        </div>
+    </div>
+</div>

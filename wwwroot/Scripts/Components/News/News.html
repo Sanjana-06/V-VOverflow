@@ -1,0 +1,94 @@
+﻿<!--NEWS Section-->
+    <div id="news" class="container mt-4  text-primary">
+        <div class="row mb-3" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="col text-center">
+                <span class="bg-primary text-white p-2  rounded">News</span>
+                <div>
+                    <h1 class="text-caption-color mt-3 mb-3">BREAKING NEWS</h1>
+                    <hr class="shr" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col position-relative">
+                <img class="float-end b-10" style="width:90%;" src="~/wwwroot/img/docker-1.jpg" data-aos="flip-left" data-aos-duration="2000" />
+                <div data-aos="zoom-in" data-aos-duration="2000">
+                    <div class="hov p-5 bg-pannel" style="border:1px solid rgba(220,220,220,.3); width:50%;border-radius:10px; position:absolute;top:250px;">
+                        <h1 class="text-uppercase r mb-3">16 million</h1>
+                        <h2 class="text-uppercase mb-0">pages per month</h2><br />
+                        <a target="_blank" href="http://highscalability.com/stack-overflow-architecture">How Stackoverflow manages such scalability?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col" data-aos="flip-right" data-aos-duration="2000">
+                <h1 class="text-uppercase mb-4 text-primary">Do we need Docker ? </h1>
+                <p class="text-primary">
+                    We develop applications for the railway domain, it is quite different than the one you usually see, like e-commerce, banking or video streaming
+                    platforms. Let us dig deeper to understand this aspect.
+                </p>
+                <p class="text-primary">
+                    There are many good things about Docker. It packs, ships, and runs applications as a lightweight, portable, and self-sufficient containerization tool.
+                    Docker is great for businesses of all sizes. When you are working on a piece of code in a small team, it eliminates the “but it works on my machine”
+                    problem.
+                </p>
+                <p class="text-primary">
+                    But in a server you will rarely have <span style="font-style: italic">“but it works on my machine”</span> issue and also what if . . .
+                </p>
+                <p class="mb-4">
+                    <ul>
+                        <li class="text-primary">Speed is my primary concern ? </li>
+                        <li class="text-primary">I want to priotize security  </li>
+                        <li class="text-primary">I am looking for easily managed technology</li>
+                        <li class="text-primary">I only have a few nodes to manage</li>
+                    </ul>
+                </p>
+                <div class="row mt-3" style="margin-left:-250px;">
+                    <div class="col m-3 ">
+                        <div class="p-2 hov b-10">
+                            <h2>IN 2019</h2>
+                            <p class="text-primary">
+                                An article was published addressing such questions <a target="_blank" href="https://www.freecodecamp.org/news/7-cases-when-not-to-use-docker/" target="_blank">Click here</a>
+                                to read it
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col  m-3 hov b-10">
+                        <div class="p-2">
+                            <h2>For .NET</h2>
+                            <p class="text-primary">
+                                Architecture should be such that it should run with or without docker/kubernetes infra.
+                                Leverage <a target="_blank" href="https://docs.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview">WSFC</a>
+                                to increase the availability of applications and services
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:-20px;" data-aos="fade-up" data-aos-duration="3000">
+            <div class="col">
+                <span class="bg-primary text-white p-2 rounded">News in ALSTOM</span><br />
+                <img src="~/wwwroot/img/Nicolas.png" style="border-radius:50%;" />
+                <h1 class="text-uppercase mb-4" style="display:inline;"> BAUDET Nicolas </h1>
+                <p class="text-primary">
+                    <b>BAUDET Nicolas</b>, is a Senior expert DIS working for DMS, at <a target="_blank" href="https://www.google.com/maps/place/Alstom+Transport+SA+(Livraison)/45.7583893,4.9150401,17z/data=!3m1!4b1!4m5!3m4!1s0x47f4c100eb00dce9:0xdbaee350ddcba4fa!8m2!3d45.7583893!4d4.9172288">Villeurbanne</a>.
+                    During his recent visit to Bangalore, I had a good discussion on this topic with him. An extract of the discussion is presented below :
+                </p>
+                <p class="text-primary" style="font-style:italic;">
+                    Container technology can be beneficial even on a single node and does not need Kubernetes.
+                    However, using many containers quickly brings the need for a container orchestrator (=Kubernetes) even on a single node,
+                    adding more <b>complexity and specific skillset </b> while using only a subpart of Kubernetes potential.
+                    <b>Kubernetes</b> can reach full potential, when the number of nodes start to get more than 10, in general the more the nodes the better.
+                    When to containerize is a decision to be taken by weighing betwen application needs and the complexity it brings in.
+                </p>
+                <div class="badge badge-danger bg-semi-dark rounded-pill text-light">
+                    <span class="p-3 text-primary" style="float:left;">
+                        One has to look into the conditions these technologies can be beneficial in Alstom context.
+                        <b class="text-danger">Tek Bytes</b> will present more details about this in the up comming series.
+                    </span>
+                    <span class="alstom-round"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--NEWS Section-->

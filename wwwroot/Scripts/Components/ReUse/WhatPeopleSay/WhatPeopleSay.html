@@ -1,0 +1,28 @@
+﻿<div id="{{main_id}}" class="container mt-6" data-aos="flip-up">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <p class="d-inline-block bg-semi-dark text-dark py-1 px-4">{{main_caption}}</p>
+            <h1 class="text-uppercase">{{sub_caption}}</h1>
+        </div>
+        <div id="{{carsousal_id}}" class="owl-carousel owl-theme">
+            {{#each comments as |comment|}}
+            <div>
+                <p class="test-item-text text-white">
+                    {{{comment.msg}}}
+                </p>
+                <p style="margin-top:-75px; margin-left:50px;">
+                    {{#if comment.href}}
+                    <a href="{{comment.href}}" target="_blank">
+                        {{/if}}
+                        <img src="{{comment.src}}" class="test-item" style="height: {{comment.h}}px; width: {{comment.w}}px;" />
+                        {{#if comment.href}}
+                    </a>
+                    {{/if}}
+                    <b class="text-white-50">{{comment.name}}</b><br />
+                    {{comment.title}}
+                </p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
