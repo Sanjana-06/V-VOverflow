@@ -7,7 +7,7 @@ Sure, here's a sample README file for your V&V Overflow project:
 
 V&V Overflow is a collaborative Q&A platform for technical queries, inspired by Stack Overflow. Users can ask questions, share expertise, and find solutions. This project is built using .NET, JavaScript, C#, PostgreSQL, and Bootstrap.
 
-## Table of Contents
+Table of Contents
 
 - [Features](#features)
 - [Installation](#installation)
@@ -16,7 +16,7 @@ V&V Overflow is a collaborative Q&A platform for technical queries, inspired by 
 - [License](#license)
 - [Contact](#contact)
 
-## Features
+Features
 
 - User registration and authentication
 - Ask and answer technical questions
@@ -24,15 +24,15 @@ V&V Overflow is a collaborative Q&A platform for technical queries, inspired by 
 - Search and filter questions
 - Responsive design using Bootstrap
 
-## Installation
+Installation
 
-### Prerequisites
+Prerequisites
 
 - .NET SDK
 - PostgreSQL
 - Node.js and npm
 
-### Clone the Repository
+Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/vv-overflow.git
@@ -98,17 +98,4 @@ npm start
 1. Open your browser and navigate to `http://localhost:5000` for the backend server.
 2. Access the frontend interface at `http://localhost:3000`.
 
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
